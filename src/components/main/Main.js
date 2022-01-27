@@ -47,10 +47,15 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
           </div>
         </div>
       </Card>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", textAlign: "center" }}>
         {check === "true" || check === "false" ? (
           <Button
-            style={{ width: "100%", fontWeight: "bold", marginTop: 20 }}
+            style={{
+              width: "100%",
+              fontWeight: "bold",
+              marginTop: 20,
+              maxWidth: 300,
+            }}
             shape="round"
             onClick={() => {
               setChoose(undefined);
@@ -62,7 +67,12 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
           </Button>
         ) : (
           <Button
-            style={{ width: "100%", fontWeight: "bold", marginTop: 20 }}
+            style={{
+              width: "100%",
+              fontWeight: "bold",
+              marginTop: 20,
+              maxWidth: 300,
+            }}
             shape="round"
             onClick={() => {
               handleCheckQuestion(choose, question?.answerIndex);

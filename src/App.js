@@ -82,6 +82,7 @@ function App() {
               : result?.check
           }
           answer={result?.answer}
+          point={results?.point}
         />
       )}
     </Card>
