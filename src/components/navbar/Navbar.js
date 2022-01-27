@@ -15,7 +15,10 @@ const Navbar = ({ questionIndex, results, point }) => {
         <Card>
           <nav style={{ display: "flex", alignItems: "center" }}>
             <div>
-              <CloseOutlined style={{ fontSize: "24px", marginRight: 10 }} />
+              <CloseOutlined
+                onClick={() => window.location.reload()}
+                style={{ fontSize: "24px", marginRight: 10, cursor: "pointer" }}
+              />
             </div>
             <Steps current={questionIndex} type="navigation" size="small">
               {questions?.map((question, index) => (

@@ -27,17 +27,14 @@ const Result = ({ check, answer, point, handleReset }) => {
           </Card>
         </div>
       ) : check === "true" ? (
-        <Res status="success" title="Congrats" />
+        <Res style={{ padding: 0 }} status="success" title="Congrats" />
       ) : check === "not selected" ? (
-        <Res
-          status="error"
-          title="Keep trying!"
-          subTitle={`The correct answer is ${answer}.`}
-        />
+        <Res style={{ padding: 0 }} title="Select an option!!" />
       ) : check === "false" ? (
         <Res
+          style={{ padding: 0 }}
           status="error"
-          title="Keep trying!"
+          title="Select an option!!"
           subTitle={`The correct answer is ${answer}.`}
         />
       ) : null}

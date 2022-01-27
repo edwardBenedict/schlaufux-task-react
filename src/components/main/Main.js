@@ -13,7 +13,7 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
             flexDirection: "column",
             justifyContent: "space-around",
             alignItems: "center",
-            minHeight: "35vh",
+            height: "35vh",
           }}
         >
           <div style={{ width: "100%", textAlign: "center" }}>
@@ -32,7 +32,7 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
                 key={option}
                 style={{
                   width: "150px",
-                  margin: "20px",
+                  marginRight: "10px",
                   borderRadius: "20px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -54,7 +54,7 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
             style={{
               width: "100%",
               fontWeight: "bold",
-              marginTop: 20,
+              marginTop: 5,
               maxWidth: 300,
             }}
             shape="round"
