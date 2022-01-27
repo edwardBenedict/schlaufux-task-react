@@ -35,6 +35,7 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
                   margin: "20px",
                   borderRadius: "20px",
                   overflow: "hidden",
+                  cursor: "pointer",
                   textAlign: "center",
                   border:
                     choose === index ? "4px solid #9E0059" : "4px solid #ccc",

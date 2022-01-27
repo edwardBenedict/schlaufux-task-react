@@ -1,7 +1,7 @@
-import { Card, Result as Res } from "antd";
+import { Button, Card, Result as Res } from "antd";
 import finalPng from "../../assets/final.png";
 
-const Result = ({ check, answer, point }) => {
+const Result = ({ check, answer, point, handleReset }) => {
   return (
     <Card style={{ marginTop: 10 }}>
       {check === "final" ? (
@@ -16,6 +16,14 @@ const Result = ({ check, answer, point }) => {
               </span>{" "}
               points.
             </h1>
+            <Button
+              size="large"
+              type="primary"
+              shape="round"
+              onClick={handleReset}
+            >
+              Try again!
+            </Button>
           </Card>
         </div>
       ) : check === "true" ? (

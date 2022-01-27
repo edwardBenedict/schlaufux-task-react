@@ -8,12 +8,10 @@ import Result from "./components/result/Result";
 import { getRandomeIndexFromArray } from "./utils/functions";
 
 const randomQuestionArray = [...Array(questions.length).keys()];
+const initialRandomQuestion = { index: undefined, array: randomQuestionArray };
 
 function App() {
-  const [randomQuestion, setRandomQuestion] = useState({
-    index: undefined,
-    array: randomQuestionArray,
-  });
+  const [randomQuestion, setRandomQuestion] = useState(initialRandomQuestion);
   const [selectedQuestion, setSelectedQuestion] = useState();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [results, setResults] = useState({ point: 0, results: [] });
@@ -36,12 +34,16 @@ function App() {
           ? "true"
           : "false",
     });
-
+    let point = index === answer ? selectedQuestion?.point : 0;
     setResults({
       ...results,
-      point: results.point + index === answer ? selectedQuestion?.point : 0,
+      point: results.point + point,
       results: [...results.results, index === answer],
     });
+  };
+
+  const handleReset = () => {
+    window.location.reload();
   };
 
   const handleNextQuestion = () => {
@@ -55,7 +57,6 @@ function App() {
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "column",
-        // alignItems: "space-between",
         height: "100vh",
       }}
     >
@@ -83,6 +84,7 @@ function App() {
           }
           answer={result?.answer}
           point={results?.point}
+          handleReset={handleReset}
         />
       )}
     </Card>
