@@ -4,7 +4,6 @@ import { Badge, Button, Card } from "antd";
 const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
   const [choose, setChoose] = useState();
 
-  console.log("main");
   return (
     <Badge.Ribbon text={question?.topic} color="cyan">
       <Card>
