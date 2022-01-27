@@ -38,7 +38,7 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
                   overflow: "hidden",
                   textAlign: "center",
                   border:
-                    choose == index ? "4px solid #9E0059" : "4px solid #ccc",
+                    choose === index ? "4px solid #9E0059" : "4px solid #ccc",
                 }}
                 onClick={() => setChoose(index)}
               >
@@ -49,11 +49,14 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
         </div>
       </Card>
       <div style={{ width: "100%" }}>
-        {check == "true" || check == "false" ? (
+        {check === "true" || check === "false" ? (
           <Button
             style={{ width: "100%", fontWeight: "bold", marginTop: 20 }}
             shape="round"
-            onClick={() => handleNextQuestion()}
+            onClick={() => {
+              setChoose(undefined);
+              handleNextQuestion();
+            }}
             type="primary"
           >
             Next
@@ -63,7 +66,6 @@ const Main = ({ question, handleNextQuestion, handleCheckQuestion, check }) => {
             style={{ width: "100%", fontWeight: "bold", marginTop: 20 }}
             shape="round"
             onClick={() => {
-              setChoose(undefined);
               handleCheckQuestion(choose, question?.answerIndex);
             }}
             type="primary"

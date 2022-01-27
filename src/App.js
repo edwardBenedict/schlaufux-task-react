@@ -9,23 +9,30 @@ import Result from "./components/result/Result";
 function App() {
   const [selectedQuestion, setSelectedQuestion] = useState();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [results, setResults] = useState([]);
-  const [result, setResult] = useState(undefined);
+  const [results, setResults] = useState({ point: 0, results: [] });
+  const [result, setResult] = useState({ check: undefined, answer: undefined });
 
   useEffect(() => {
     setSelectedQuestion(questions[questionIndex]);
   }, [questionIndex]);
 
   const handleCheckQuestion = (index, answer) => {
-    console.log("index, answer", index, answer);
-    setResult(
-      index == undefined ? "not selected" : index == answer ? "true" : "false"
-    );
-    console.log(
-      "clg",
-      !index ? "not selected" : index == answer ? "true" : "false"
-    );
-    setResults([...results, index == answer]);
+    setResult({
+      ...result,
+      answer: selectedQuestion?.answerIndex,
+      check:
+        index === undefined
+          ? "not selected"
+          : index === answer
+          ? "true"
+          : "false",
+    });
+
+    setResults({
+      ...results,
+      point: results.point + index === answer ? selectedQuestion?.point : 0,
+      results: [...results.results, index === answer],
+    });
   };
 
   const handleNextQuestion = () => {
@@ -43,16 +50,20 @@ function App() {
         height: "100vh",
       }}
     >
-      <Navbar questionIndex={questionIndex} results={results} />
+      <Navbar
+        questionIndex={questionIndex}
+        results={results?.results}
+        point={results?.point}
+      />
       <Card>
         <Main
           question={selectedQuestion}
           handleNextQuestion={handleNextQuestion}
           handleCheckQuestion={handleCheckQuestion}
-          check={result}
+          check={result?.check}
         />
       </Card>
-      <Result check={result} />
+      <Result check={result?.check} answer={result?.answer} />
     </Card>
   );
 }
