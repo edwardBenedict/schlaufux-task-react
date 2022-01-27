@@ -1,32 +1,27 @@
 import { Card, Result as Res } from "antd";
-import React from "react";
 
 const Result = ({ check, answer }) => {
-  if (check === "true") {
-    return (
-      <Card>
+  return (
+    <Card style={{ marginTop: 10 }}>
+      {check === "final" ? (
+        <Res status="success"></Res>
+      ) : check === "true" ? (
         <Res status="success" title="Congrats" />
-      </Card>
-    );
-  } else if (check === "not selected") {
-    return (
-      <Card style={{ margin: 20 }}>
-        <Res title="You should choose an option." />
-      </Card>
-    );
-  } else if (check === "false") {
-    return (
-      <Card style={{ margin: 20 }}>
+      ) : check === "not selected" ? (
         <Res
           status="error"
           title="Keep trying!"
           subTitle={`The correct answer is ${answer}.`}
         />
-      </Card>
-    );
-  } else {
-    return null;
-  }
+      ) : check === "false" ? (
+        <Res
+          status="error"
+          title="Keep trying!"
+          subTitle={`The correct answer is ${answer}.`}
+        />
+      ) : null}
+    </Card>
+  );
 };
 
 export default Result;

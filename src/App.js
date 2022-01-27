@@ -7,7 +7,7 @@ import { Card } from "antd";
 import Result from "./components/result/Result";
 import { getRandomeIndexFromArray } from "./utils/functions";
 
-const randomQuestionArray = [0, 1, 2, 3, 4];
+const randomQuestionArray = [...Array(questions.length).keys()];
 
 function App() {
   const [randomQuestion, setRandomQuestion] = useState({
@@ -64,15 +64,26 @@ function App() {
         results={results?.results}
         point={results?.point}
       />
-      <Card>
-        <Main
-          question={selectedQuestion}
-          handleNextQuestion={handleNextQuestion}
-          handleCheckQuestion={handleCheckQuestion}
-          check={result?.check}
+      {questions.length !== results.results.length && (
+        <Card>
+          <Main
+            question={selectedQuestion}
+            handleNextQuestion={handleNextQuestion}
+            handleCheckQuestion={handleCheckQuestion}
+            check={result?.check}
+          />
+        </Card>
+      )}
+      {result?.check && (
+        <Result
+          check={
+            questions.length === results.results.length
+              ? "final"
+              : result?.check
+          }
+          answer={result?.answer}
         />
-      </Card>
-      <Result check={result?.check} answer={result?.answer} />
+      )}
     </Card>
   );
 }

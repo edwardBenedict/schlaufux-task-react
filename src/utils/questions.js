@@ -39,16 +39,40 @@ const questions = [
     answerIndex: 0,
     point: 6,
   },
+  {
+    topic: "Geography",
+    id: "02.03",
+    question: "In which country lies South America's highest peak?",
+    options: ["Peru", "Brazil", "Uruguay", "Argentina"],
+    answerIndex: 3,
+    point: 10,
+  },
+  {
+    topic: "English",
+    id: "03.01",
+    question: "Can you swim?",
+    options: ["In a pool", "Yes, I can", "Very good"],
+    answerIndex: 1,
+    point: 3,
+  },
+  {
+    topic: "English",
+    id: "03.02",
+    question:
+      "In which voice is the following sentence: 'The money was stolen.'",
+    options: ["Active", "Passive"],
+    answerIndex: 1,
+    point: 6,
+  },
+  {
+    topic: "English",
+    id: "03.03",
+    question:
+      "The verb 'lie' can mean various things. Which of the options is not a synonym of 'to lie'?",
+    options: ["To recline", "To tel a falsehood", "To place something"],
+    answerIndex: 2,
+    point: 7,
+  },
 ];
 
 export default questions;
-/*
-  ["topic",	"id",	"question",	"answerOptions"	,"answerIndex"	score]
-  
-  
-  
-  Geography	02.03	In which country lies South America's highest peak?	Peru;Brazil;Uruguay;Argentina	3	10
-  English	03.01	Can you swim?	In a pool;Yes, I can;Very good	1	3
-  English	03.02	In which voice is the following sentence: "The money was stolen."	active;passive	1	6
-  English	03.03	The verb "lie" can mean various things. Which of the options is not a synonym of "to lie"? 	to recline;to tell a falsehood;to place something	2	7
-  */

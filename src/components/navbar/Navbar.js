@@ -7,7 +7,7 @@ const { Step } = Steps;
 
 const Navbar = ({ questionIndex, results, point }) => {
   return (
-    <div style={{ margin: 20 }}>
+    <div style={{ marginBottom: 10 }}>
       <Badge.Ribbon
         text={results.length === 0 ? "Good luck" : `Total Point: ${point}`}
         color="green"
